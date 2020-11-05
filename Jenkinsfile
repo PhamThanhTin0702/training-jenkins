@@ -1,10 +1,5 @@
 pipeline{
-    agent{
-        docker {
-            image 'node:latest'
-            args '-p 6001:6001'
-        }
-    }
+    agent any
     stages{
         stage("Setup"){
             steps{
