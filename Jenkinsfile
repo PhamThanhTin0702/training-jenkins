@@ -7,7 +7,9 @@ pipeline{
     }
     stages{
         stage("Setup"){
-            sh 'whoami'
+            steps{
+                sh 'whoami'
+            }
         }
         stage("Build"){
             steps{
