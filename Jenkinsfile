@@ -6,6 +6,9 @@ pipeline{
         }
     }
     stages{
+        stage("Setup"){
+            sh 'whoami'
+        }
         stage("Build"){
             steps{
                 sh 'npm install'
