@@ -1,9 +1,6 @@
 pipeline{
-    agent{
-        docker {
-            image 'node:latest'
-            args '-p 6001:6001'
-        }
+    agent any{
+        docker 'node:latest'
     }
     stages{
         stage("Build"){
