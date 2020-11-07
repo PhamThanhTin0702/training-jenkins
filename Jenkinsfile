@@ -7,7 +7,7 @@ pipeline{
            }
            steps{
                script {
-                   def appimage = docker.build "node:lastest"
+                   def appimage = docker.build "phamthanhtin0702/node:lastest"
                    docker.withRegistry( '', registryCredential ) {
                        appimage.push()
                        appimage.push('latest')
