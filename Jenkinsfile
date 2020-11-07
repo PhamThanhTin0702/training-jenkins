@@ -3,11 +3,11 @@ pipeline{
     stages {
         stage('Publish') {
            environment {
-               registryCredential = 'phamthanhtin0702'
+               registryCredential = 'dockerhub'
            }
            steps{
                script {
-                   def appimage = docker.build "magalixcorp/k8scicd" + ":$BUILD_NUMBER"
+                   def appimage = docker.build "node:lastest"
                    docker.withRegistry( '', registryCredential ) {
                        appimage.push()
                        appimage.push('latest')
