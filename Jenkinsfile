@@ -1,6 +1,7 @@
 pipeline{
     agent any
-    stage('Publish') {
+    stages {
+        stage('Publish') {
            environment {
                registryCredential = 'phamthanhtin0702'
            }
@@ -14,6 +15,8 @@ pipeline{
                }
            }
        }
+    }
+    
     
     // agent{
     //     docker {
