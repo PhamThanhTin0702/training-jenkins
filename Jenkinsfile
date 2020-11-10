@@ -21,7 +21,7 @@ pipeline{
                 sh "curl -fsSL https://download.docker.com/linux/debian/gpg && apt-key add -"
                 sh "apt-key fingerprint 0EBFCD88"
                 sh """
-                    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+                    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian ${lsb_release -cs} stable"
                 """
            }
        }
