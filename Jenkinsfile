@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent {label "jenkins-slave"}
     stages {
     //     stage('Publish') {
     //        environment {
@@ -17,13 +17,15 @@ pipeline{
 
        stage('Installation') {
            steps{
-                sh "whoami"
-                sh "sudo apt-get update && apt-get install -y apt-transport-https && ca-certificates curl gnupg2 && software-properties-common"
-                sh "sudo curl -fsSL https://download.docker.com/linux/debian/gpg && apt-key add -"
-                sh "sudo apt-key fingerprint 0EBFCD88"
-                sh """
-                    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian ${lsb_release -cs} stable"
-                """
+                git url: 'https://github.com/PhamThanhTin0702/training-jenkins.git', branch: 'main'
+           }
+       }
+
+       stage('Deploye') {
+           steps {
+               script {
+                   kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "mykuceconfig")
+               }
            }
        }
     }
