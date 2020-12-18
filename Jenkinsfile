@@ -17,17 +17,17 @@ pipeline{
 
        stage('Installation') {
            steps{
-                git url: 'https://github.com/PhamThanhTin0702/training-jenkins.git', branch: 'main'
+                echo "========A executed successfully========"
            }
        }
 
-       stage('Deploye') {
-           steps {
-               script {
-                   kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "mykuceconfig")
-               }
-           }
-       }
+    //    stage('Deploye') {
+    //        steps {
+    //            script {
+    //                kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "mykuceconfig")
+    //            }
+    //        }
+    //    }
     }
     
     
